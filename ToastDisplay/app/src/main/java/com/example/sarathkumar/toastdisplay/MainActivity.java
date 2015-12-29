@@ -22,15 +22,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView I1 = (ImageView) findViewById(R.id.imageView1);
 
         I1.setImageResource(R.drawable.i1);
-        //ImageView I2 = R.drawable.i2;
-
-        //EditText textf = (EditText) findViewById(R.id.t1);
-
-        //Log.i("******************", textf.getText().toString());
-
-        //Toast.makeText(getApplication(),"textf.getText().toString()",Toast.LENGTH_LONG).show();
-
-        //Toast.makeText(getApplication(), textf.getText().toString(), Toast.LENGTH_LONG).show();
+        
     }
 
     @Override
