@@ -1,5 +1,6 @@
 package com.example.sarathkumar.toastdisplay;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,14 +19,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickFunction(View view)
     {
+        ImageView I1 = (ImageView) findViewById(R.id.imageView1);
 
-        EditText textf = (EditText) findViewById(R.id.t1);
+        I1.setImageResource(R.drawable.i1);
+        //ImageView I2 = R.drawable.i2;
+
+        //EditText textf = (EditText) findViewById(R.id.t1);
 
         //Log.i("******************", textf.getText().toString());
 
         //Toast.makeText(getApplication(),"textf.getText().toString()",Toast.LENGTH_LONG).show();
 
-        Toast.makeText(getApplication(), textf.getText().toString(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplication(), textf.getText().toString(), Toast.LENGTH_LONG).show();
     }
 
     @Override
