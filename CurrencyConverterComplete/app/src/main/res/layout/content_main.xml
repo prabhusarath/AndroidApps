@@ -14,44 +14,58 @@
         android:layout_height="wrap_content"
         android:text="ENTER USD AMOUNT"
         android:id="@+id/textView"
-        android:layout_centerHorizontal="true"
         android:background="#ffffff"
-        android:layout_alignParentTop="true" />
+        android:layout_above="@+id/editText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="55dp"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentBottom="false" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="43dp" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText2"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="72dp"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EQUIVALENT INDIAN RUPEES"
+        android:text="INDIAN RUPEES"
         android:id="@+id/textView2"
-        android:layout_above="@+id/editText2"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="53dp" />
+        android:layout_marginBottom="210dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Convert"
         android:id="@+id/button"
+        android:layout_marginTop="43dp"
+        android:onClick="convButton"
         android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp"
-        android:onClick="convButton" />
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/c1"
+        android:layout_above="@+id/textView" />
 </RelativeLayout>
