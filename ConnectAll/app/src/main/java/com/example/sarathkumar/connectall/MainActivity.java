@@ -8,14 +8,32 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    public void change(View view)
+    public void Change(View view)
     {
-        
+        ImageView img = (ImageView) view;
 
+        img.setTranslationY(-1000f);
+
+        img.setImageResource(R.drawable.yellow);
+
+        img.animate().translationYBy(1000f).rotation(360).setDuration(1000l);
+
+    }
+
+    public void Change1(View view)
+    {
+        ImageView img = (ImageView) view;
+
+        img.setTranslationY(1000f);
+
+        img.setImageResource(R.drawable.sm);
+
+        img.animate().translationYBy(-1000f).rotation(360).setDuration(1000l);
 
     }
 
