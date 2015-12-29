@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i("******************",textf.getText().toString());
 
-        Toast.makeText(getApplication(),"textf.getText().toString()",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplication(),"textf.getText().toString()",Toast.LENGTH_LONG).show();
 
-       // Toast.makeText(getApplication(),textf.getText().toString(),Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplication(),textf.getText().toString(),Toast.LENGTH_LONG).show();
     }
 
 
