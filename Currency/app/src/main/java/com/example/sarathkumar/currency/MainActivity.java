@@ -15,7 +15,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickFunction(View view)
     {
+
         Log.i("Info","Button Clicked!!");
+        Log.i("***","Clicked!!");
+
+
+
     }
 
 
