@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,9 +18,14 @@ public class MainActivity extends AppCompatActivity {
     public void clickFunction(View view)
     {
 
+
         EditText textf = (EditText)findViewById(R.id.t1);
 
         Log.i("******************",textf.getText().toString());
+
+        Toast.makeText(getApplication(),"textf.getText().toString()",Toast.LENGTH_LONG).show();
+
+       // Toast.makeText(getApplication(),textf.getText().toString(),Toast.LENGTH_LONG).show();
     }
 
 
