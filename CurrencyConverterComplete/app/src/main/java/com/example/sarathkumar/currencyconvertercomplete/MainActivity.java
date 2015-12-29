@@ -10,28 +10,56 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    Random rand = new Random();
+    Integer ir;
 
     public void convButton(View view)
     {
 
         EditText T1 = (EditText) findViewById(R.id.editText);
 
-        EditText T2 = (EditText) findViewById(R.id.editText2);
 
         String usDollars = T1.getText().toString();
 
-        Integer indianRupees = Integer.parseInt(usDollars) * 66 ;
+        if (usDollars.length() > 0 )
+        {
 
-        String finalConv = indianRupees.toString();
+        Integer indianRupees = Integer.parseInt(usDollars);
 
-        T2.setText(finalConv);
+        String Msg =" ";
+        if (indianRupees > ir)
+        {
+            Msg = "High";
 
+        }
+        else if(indianRupees < ir)
+        {
+            Msg = "Low";
+        }
+        else {
+            Msg = "Correct Equal";
+            ir = rand.nextInt(21);
+
+        }
+
+        Toast.makeText(getApplicationContext(),Msg,Toast.LENGTH_LONG).show();}
+
+        else {
+            Toast.makeText(getApplicationContext(),"Please Enter Number",Toast.LENGTH_LONG).show();
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Random rand = new Random();
+        ir = rand.nextInt(21);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
