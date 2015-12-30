@@ -21,7 +21,8 @@
         android:layout_alignParentBottom="false"
         android:layout_alignParentRight="true"
         android:layout_alignWithParentIfMissing="false"
-        android:layout_marginTop="50sp">
+        android:layout_marginTop="50sp"
+        android:id="@+id/gridLayout">
 
         <ImageView
             android:layout_width="120sp"
@@ -107,4 +108,25 @@
             android:tag="9"/>
 
     </GridLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play Again !!"
+            android:id="@+id/b1"
+            android:layout_gravity="center_horizontal"
+            android:elegantTextHeight="false"
+            android:alpha="0"
+            android:onClick="Reset"
+            android:layout_marginBottom="100sp"
+            android:layout_marginTop="400sp" />
+    </LinearLayout>
 </RelativeLayout>

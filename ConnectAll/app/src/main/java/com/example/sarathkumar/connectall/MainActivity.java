@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,13 +20,14 @@ public class MainActivity extends AppCompatActivity {
 
     int[][] pos = {{0,1,2} , {3,4,5} , {6,7,8} ,{0,4,8},{2,4,6},{0,3,6},{1,4,7},{2,5,8}};
 
-    public void Change(View view)
-    {
+    public void Change(View view) {
         ImageView img = (ImageView) view;
 
         Integer count = Integer.parseInt(img.getTag().toString());
 
-        if( state[count]==2) {
+        if (state[count] == 2)
+
+        {
             state[count] = player;
 
             img.setTranslationY(-1000f);
@@ -34,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
                 img.setImageResource(R.drawable.yellow);
                 player = 1;
             } else {
-
                 img.setImageResource(R.drawable.sm);
                 player = 0;
             }
@@ -42,18 +43,42 @@ public class MainActivity extends AppCompatActivity {
 
             img.animate().translationYBy(1000f).rotation(360).setDuration(1000l);
 
-        for(int[] poss: pos)
-        {
-            if(state[poss[0]] == state[poss[1]] && state[poss[1]] == state[poss[2]] && state[poss[0]] != 2)
-            {
-                Toast.makeText(getApplicationContext(),"Some One Won",Toast.LENGTH_LONG).show();
+
+            String Msg;
+
+            //LinearLayout l = (LinearLayout) findViewById(R.id.b1);
+
+            for (int[] poss : pos) {
+                if (state[poss[0]] == state[poss[1]] && state[poss[1]] == state[poss[2]] && state[poss[0]] != 2)
+
+                {
+                    if (player == 0){
+                        Msg = "Player 2";
+                        Toast.makeText(getApplicationContext(), Msg + " Won !!", Toast.LENGTH_LONG).show();
+                        findViewById(R.id.b1).setAlpha(1);
+                    }
+                     else {
+                        Msg = "Player 1";
+                        Toast.makeText(getApplicationContext(), Msg + " Won !!", Toast.LENGTH_LONG).show();
+                        findViewById(R.id.b1).setAlpha(1);
+                    }
+
+                }
+
             }
 
-        }
 
         }
+    }
 
+    public void Reset(View view)
+    {
+        for(int i=0;i<9;i++)
+        {
+            state[i] = 2;
+        }
 
+        ImageView Rstimg = (ImageView) view;
 
     }
 
