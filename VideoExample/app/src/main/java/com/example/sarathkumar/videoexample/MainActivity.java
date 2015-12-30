@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.VideoView;
+import android.widget.MediaController;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
         VideoView v1 = (VideoView) findViewById(R.id.videoView);
 
-        v1.setVideoPath("android.resource://"+getPackageName()+"/"+R.raw.demovideo);
+        v1.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.demovideo);
+
+        MediaController mediaControl = new MediaController(this);
+
+        mediaControl.setAnchorView(v1);
+
+        v1.setMediaController(mediaControl);
 
         v1.start();
 
