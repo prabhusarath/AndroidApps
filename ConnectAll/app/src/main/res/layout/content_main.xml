@@ -32,7 +32,7 @@
             android:layout_column="0"
             android:onClick="Change"
             android:layout_marginTop="25sp"
-            android:tag="1"/>
+            android:tag="0"/>
         <ImageView
             android:layout_width="120sp"
             android:layout_height="90sp"
@@ -41,7 +41,7 @@
             android:layout_column="1"
             android:onClick="Change"
             android:layout_marginTop="25sp"
-            android:tag="2"/>
+            android:tag="1"/>
         <ImageView
             android:layout_width="120sp"
             android:layout_height="90sp"
@@ -50,7 +50,7 @@
             android:layout_column="2"
             android:onClick="Change"
             android:layout_marginTop="25sp"
-            android:tag="3"/>
+            android:tag="2"/>
         <ImageView
             android:layout_width="120sp"
             android:layout_height="90sp"
@@ -59,7 +59,7 @@
             android:layout_column="0"
             android:onClick="Change"
             android:layout_marginTop="25sp"
-            android:tag="4"/>
+            android:tag="3"/>
         <ImageView
             android:layout_width="120sp"
             android:layout_height="90sp"
@@ -68,7 +68,7 @@
             android:layout_column="1"
             android:layout_marginTop="25sp"
             android:onClick="Change"
-            android:tag="5"/>
+            android:tag="4"/>
         <ImageView
             android:layout_width="120sp"
             android:layout_height="90sp"
@@ -77,7 +77,7 @@
             android:layout_column="2"
             android:onClick="Change"
             android:layout_marginTop="25sp"
-            android:tag="6"/>
+            android:tag="5"/>
         <ImageView
             android:layout_width="120sp"
             android:layout_height="90sp"
@@ -86,7 +86,7 @@
             android:layout_column="0"
             android:onClick="Change"
             android:layout_marginTop="15sp"
-            android:tag="7"/>
+            android:tag="6"/>
         <ImageView
             android:layout_width="120sp"
             android:layout_height="90sp"
@@ -95,7 +95,7 @@
             android:layout_column="1"
             android:layout_marginTop="15sp"
             android:onClick="Change"
-            android:tag="8"/>
+            android:tag="7"/>
 
         <ImageView
             android:layout_width="120sp"
@@ -105,7 +105,7 @@
             android:layout_column="2"
             android:onClick="Change"
             android:layout_marginTop="15sp"
-            android:tag="9"/>
+            android:tag="8"/>
 
     </GridLayout>
 

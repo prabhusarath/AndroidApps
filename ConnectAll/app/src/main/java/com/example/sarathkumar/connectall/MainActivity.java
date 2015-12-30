@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    Boolean Active;
+
     int player = 0;
 
     int[] state = {2,2,2,2,2,2,2,2,2};
@@ -23,11 +25,14 @@ public class MainActivity extends AppCompatActivity {
     int[][] pos = {{0,1,2} , {3,4,5} , {6,7,8} ,{0,4,8},{2,4,6},{0,3,6},{1,4,7},{2,5,8}};
 
     public void Change(View view) {
+
+        Active = Boolean.TRUE;
+
         ImageView img = (ImageView) view;
 
         Integer count = Integer.parseInt(img.getTag().toString());
 
-        if (state[count] == 2)
+        if (state[count] == 2 && Active)
 
         {
             state[count] = player;
@@ -51,19 +56,49 @@ public class MainActivity extends AppCompatActivity {
             //LinearLayout l = (LinearLayout) findViewById(R.id.b1);
 
             for (int[] poss : pos) {
-                if (state[poss[0]] == state[poss[1]] && state[poss[1]] == state[poss[2]] && state[poss[0]] != 2)
+                if (state[poss[0]] == state[poss[1]] && state[poss[1]] == state[poss[2]] && state[poss[0]] != 2 )
 
                 {
                     if (player == 0){
                         Msg = "Player 2";
                         Toast.makeText(getApplicationContext(), Msg + " Won !!", Toast.LENGTH_LONG).show();
+
                         findViewById(R.id.b1).setAlpha(1);
+
+                        Active = Boolean.FALSE;
                     }
                      else {
                         Msg = "Player 1";
                         Toast.makeText(getApplicationContext(), Msg + " Won !!", Toast.LENGTH_LONG).show();
                         findViewById(R.id.b1).setAlpha(1);
+                        Active = Boolean.FALSE;
                     }
+
+                }
+                else {
+
+
+                    Boolean over = Boolean.TRUE;
+
+                    for (int fg : state) {
+                        if (fg == 2)
+                            over = Boolean.FALSE;
+                    }
+
+                    if(over)
+                    {
+                        Msg = "Nobody";
+                        Toast.makeText(getApplicationContext(), Msg + " Won !!", Toast.LENGTH_LONG).show();
+                        findViewById(R.id.b1).setAlpha(1);
+                        Active = Boolean.FALSE;
+                        findViewById(R.id.b1).setAlpha(1);
+
+                    }
+
+
+                }
+
+
 
                 }
 
@@ -71,17 +106,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-    }
 
     public void Reset(View view)
     {
-
-
-
+        Active = Boolean.TRUE;
         LinearLayout l = (LinearLayout) findViewById(R.id.lin);
         //ImageView Rstimg = (ImageView) view;
 
-        l.setVisibility(View.INVISIBLE);
+        l.setVisibility(View.VISIBLE);
 
         player = 0;
 
@@ -96,8 +128,6 @@ public class MainActivity extends AppCompatActivity {
 
             ((ImageView)G.getChildAt(j)).setImageResource(0);
         }
-
-
 
     }
 
