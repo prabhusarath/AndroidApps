@@ -9,33 +9,66 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    int player = 0;
+
+    int[] state = {2,2,2,2,2,2,2,2,2};
+
+    int[][] pos = {{0,1,2} , {3,4,5} , {6,7,8} ,{0,4,8},{2,4,6},{0,3,6},{1,4,7},{2,5,8}};
 
     public void Change(View view)
     {
         ImageView img = (ImageView) view;
 
-        img.setTranslationY(-1000f);
+        Integer count = Integer.parseInt(img.getTag().toString());
 
-        img.setImageResource(R.drawable.yellow);
+        if( state[count]==2) {
+            state[count] = player;
 
-        img.animate().translationYBy(1000f).rotation(360).setDuration(1000l);
+            img.setTranslationY(-1000f);
+
+            if (player == 0) {
+                img.setImageResource(R.drawable.yellow);
+                player = 1;
+            } else {
+
+                img.setImageResource(R.drawable.sm);
+                player = 0;
+            }
+
+
+            img.animate().translationYBy(1000f).rotation(360).setDuration(1000l);
+
+        for(int[] poss: pos)
+        {
+            if(state[poss[0]] == state[poss[1]] && state[poss[1]] == state[poss[2]] && state[poss[0]] != 2)
+            {
+                Toast.makeText(getApplicationContext(),"Some One Won",Toast.LENGTH_LONG);
+            }
+
+        }
+            
+        }
+
+
 
     }
 
+    /*
     public void Change1(View view)
     {
         ImageView img = (ImageView) view;
 
         img.setTranslationY(1000f);
 
-        img.setImageResource(R.drawable.sm);
+
 
         img.animate().translationYBy(-1000f).rotation(360).setDuration(1000l);
 
-    }
+    } */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
