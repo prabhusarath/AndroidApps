@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
         {
             if(state[poss[0]] == state[poss[1]] && state[poss[1]] == state[poss[2]] && state[poss[0]] != 2)
             {
-                Toast.makeText(getApplicationContext(),"Some One Won",Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(),"Some One Won",Toast.LENGTH_LONG).show();
             }
 
         }
-            
+
         }
 
 
