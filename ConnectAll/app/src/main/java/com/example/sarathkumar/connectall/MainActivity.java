@@ -8,9 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,12 +75,29 @@ public class MainActivity extends AppCompatActivity {
 
     public void Reset(View view)
     {
+
+
+
+        LinearLayout l = (LinearLayout) findViewById(R.id.lin);
+        //ImageView Rstimg = (ImageView) view;
+
+        l.setVisibility(View.INVISIBLE);
+
+        player = 0;
+
         for(int i=0;i<9;i++)
         {
             state[i] = 2;
         }
 
-        ImageView Rstimg = (ImageView) view;
+        GridLayout G = (GridLayout) findViewById(R.id.gridLays);
+
+        for(int j=0;j<G.getChildCount();j++){
+
+            ((ImageView)G.getChildAt(j)).setImageResource(0);
+        }
+
+
 
     }
 
