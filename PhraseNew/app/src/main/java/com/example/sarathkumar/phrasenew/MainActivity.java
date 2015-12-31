@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         MediaPlayer mplay = MediaPlayer.create(this,resid);
         mplay.start();
-        
+
         //Log.i("***********",check);
     }
 
