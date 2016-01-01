@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         s1 = (SeekBar) findViewById(R.id.s1);
         t1 = (TextView) findViewById(R.id.t1);
-        
+
         s1.setMax(600);
         s1.setProgress(30);
 
