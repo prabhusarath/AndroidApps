@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
@@ -29,39 +31,48 @@ public class MainActivity extends AppCompatActivity {
     Button option3;
     Button option4;
     Button p;
+    GridLayout gl;
+    RelativeLayout r4;
+    TextView t1;
 
     TextView clock;
 
+   // Boolean active = false;
+
     public void playAgain(View view)
     {
-        score=0;
-        ques =0;
 
-        yh.setText("30s");
-        points.setText("0/0");
+            score = 0;
+            ques = 0;
 
-        new CountDownTimer(3100,100){
-            @Override
-            public void onFinish() {
+            yh.setText("");
+            clock.setText("10s");
+            points.setText("0/0");
 
-                clock.setText("0");
-                yh.setText("Your Score"+Integer.toString(score)+"/"+Integer.toString(ques));
-                p.setVisibility(View.VISIBLE);
+            new CountDownTimer(10000, 1000) {
+                @Override
+                public void onFinish() {
 
-            }
+                    clock.setText("0");
+                    t1.setText("Done");
+                    yh.setText("Your Score" + Integer.toString(score) + "/" + Integer.toString(ques));
+                    p.setVisibility(View.VISIBLE);
+                    gl.setVisibility(View.INVISIBLE);
 
-            @Override
-            public void onTick(long millisUntilFinished) {
+                }
 
-                int s = (int)(millisUntilFinished)/1000 ;
+                @Override
+                public void onTick(long millisUntilFinished) {
 
-                clock.setText(Integer.toString(s));
+                    clock.setText(String.valueOf(millisUntilFinished / 1000) + "s");
 
-            }
-        };
+                    gl.setVisibility(View.VISIBLE);
 
+                }
+            }.start();
 
-        generate();
+            generate();
+
     }
 
     public void generate()
@@ -69,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
         int a = rand.nextInt(10);
         int b = rand.nextInt(10);
-        TextView t1 = (TextView) findViewById(R.id.numb);
-        points = (TextView) findViewById(R.id.cor);
+        t1 = (TextView) findViewById(R.id.numb);
+
         t1.setText(Integer.toString(a)+"+"+Integer.toString(b));
         corAns = rand.nextInt(4);
         int inC;
@@ -97,8 +108,10 @@ public class MainActivity extends AppCompatActivity {
         option4.setText(Integer.toString(ans.get(3)));
 
     }
+
     public void choose(View view)
     {
+
         if((view.getTag()).toString().equals(Integer.toString(corAns)))
                 {
                     yh.setText("Correct :) ");
@@ -110,13 +123,15 @@ public class MainActivity extends AppCompatActivity {
         ques++;
 
         points.setText(Integer.toString(score)+"/"+Integer.toString(ques));
-
         generate();
     }
 
-    public void Init(View view)
+   public void Init(View view)
     {
+
         but.setVisibility(View.INVISIBLE);
+        r4.setVisibility(View.VISIBLE);
+        playAgain(findViewById(R.id.play));
     }
 
     @Override
@@ -125,37 +140,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         but = (Button) findViewById(R.id.b1);
-        yh = (TextView) findViewById(R.id.textView4);
+        yh = (TextView) findViewById(R.id.yh);
         rand = new Random();
         clock = (TextView) findViewById(R.id.sec);
+        points = (TextView) findViewById(R.id.Cor);
+        gl= (GridLayout) findViewById(R.id.gl);
+        r4= (RelativeLayout) findViewById(R.id.r2);
 
-        option1 = (Button) findViewById(R.id.button1);
-        option2 = (Button) findViewById(R.id.button2);
-        option3 = (Button) findViewById(R.id.button3);
-        option4 = (Button) findViewById(R.id.button4);
+        option1 = (Button) findViewById(R.id.button);
+        option2 = (Button) findViewById(R.id.button5);
+        option3 = (Button) findViewById(R.id.button6);
+        option4 = (Button) findViewById(R.id.button7);
         p = (Button) findViewById(R.id.play);
 
-        generate();
+       //Init(findViewById(R.id.b1));
 
-        new CountDownTimer(3100,100){
-            @Override
-            public void onFinish() {
-
-                clock.setText("0");
-                yh.setText("Your Score"+Integer.toString(score)+"/"+Integer.toString(ques));
-                p.setVisibility(View.VISIBLE);
-
-            }
-
-            @Override
-            public void onTick(long millisUntilFinished) {
-
-                int s = (int)(millisUntilFinished)/1000 ;
-
-                clock.setText(Integer.toString(s));
-
-            }
-        };
+       // playAgain(findViewById(R.id.play));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
