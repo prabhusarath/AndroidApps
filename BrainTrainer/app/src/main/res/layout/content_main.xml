@@ -28,7 +28,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="30S"
+        android:text="30s"
         android:id="@+id/sec"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -61,11 +61,12 @@
         android:layout_height="match_parent"
         android:columnCount="2"
         android:rowCount="2"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="100sp"
-        android:layout_marginBottom="140sp">
+        android:id="@+id/gridLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/sec"
+        android:layout_alignBottom="@+id/b1"
+        android:layout_marginTop="150sp">
 
         <Button
             android:layout_width="wrap_content"
@@ -79,7 +80,8 @@
             android:layout_gravity="fill"
             android:textSize="20sp"
             android:background="#1ee8d0"
-            android:tag="0"/>
+            android:tag="0"
+            android:onClick="choose" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,7 +94,9 @@
             android:layout_gravity="fill"
             android:textSize="20sp"
             android:background="#3821b6"
-            android:tag="1"/>
+            android:tag="1"
+            android:onClick="choose" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,7 +109,9 @@
             android:layout_gravity="fill"
             android:textSize="20sp"
             android:background="#ced204ba"
-            android:tag="2"/>
+            android:tag="2"
+            android:onClick="choose" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,7 +124,9 @@
             android:layout_gravity="fill"
             android:textSize="20sp"
             android:background="#92f7df0b"
-            android:tag="3"/>
+            android:tag="3"
+            android:onClick="choose" />
+
     </GridLayout>
 
     <TextView
@@ -126,11 +134,22 @@
         android:layout_height="wrap_content"
         android:text="Correct!"
         android:id="@+id/textView4"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/cor"
-        android:layout_toStartOf="@+id/cor"
-        android:layout_marginBottom="52dp"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        android:layout_row="2"
+        android:layout_column="1"
+        android:layout_below="@+id/b1"
+        android:layout_toRightOf="@+id/sec"
+        android:layout_toEndOf="@+id/sec"
+        android:layout_marginTop="42dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PLAY AGAIN !!"
+        android:id="@+id/play"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:onClick="playAgain" />
 
 
 </RelativeLayout>
