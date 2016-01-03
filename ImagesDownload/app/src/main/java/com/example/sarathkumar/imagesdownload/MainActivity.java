@@ -12,7 +12,12 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
 
-    public class
+    public void Down(View view)
+    {
+
+
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
