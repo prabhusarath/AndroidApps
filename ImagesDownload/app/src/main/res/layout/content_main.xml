@@ -17,8 +17,17 @@
         android:layout_height="wrap_content"
         android:text="Click"
         android:id="@+id/b1"
-        android:layout_marginTop="104dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="Down" />
+        android:onClick="Down"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/i1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="130dp" />
 </RelativeLayout>
