@@ -1,23 +1,18 @@
-package com.example.sarathkumar.guessthestars;
+package com.example.robpercival.guessthecelebrity;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -30,7 +25,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends Activity {
 
     ArrayList<String> celebURLs = new ArrayList<String>();
     ArrayList<String> celebNames = new ArrayList<String>();
@@ -38,9 +34,7 @@ public class MainActivity extends AppCompatActivity {
     int locationOfCorrectAnswer = 0;
     String[] answers = new String[4];
 
-
     ImageView imageView;
-
     Button button0;
     Button button1;
     Button button2;
@@ -60,73 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
         createNewQuestion();
 
-    }
-
-    public class Down extends AsyncTask<String,Void,String>
-    {
-
-        @Override
-        protected String doInBackground(String... urls) {
-
-            String result = "";
-
-// url is of type URL. URL is a datatype in java which holds urls
-            URL url;
-
-
-
-//this is kinda like a browser
-            HttpURLConnection urlConnection = null;
-
-
-
-            try {
-
-
-                url = new URL(urls[0]);
-                urlConnection = (HttpURLConnection) url.openConnection();
-                InputStream inputStream = null;
-                try {
-                    inputStream = urlConnection.getInputStream();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-
-                if ( inputStream != null ) {
-
-//pass the stream to the reader
-                    InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                    String receiveString = "";
-                    StringBuilder stringBuilder = new StringBuilder();
-
-
-
-//read lines from bufferedReader & store it in receiveString
-                    while ( (receiveString = bufferedReader.readLine()) != null ) {
-
-//append the lines to the stringBuilder
-                        stringBuilder.append(receiveString);
-                    }
-
-
-
-//close the stream
-                    inputStream.close();
-
-//convert the entire text from stringBuiler to string & store it in result
-                    result = stringBuilder.toString();
-                    Log.i("msg: ", "returning ret");
-                    return result;
-                }
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return "failed";
-        }
     }
 
     public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
@@ -164,29 +91,73 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    public class DownloadTask extends AsyncTask<String, Void, String> {
+
+
+        @Override
+        protected String doInBackground(String... urls) {
+
+            String result = "";
+            URL url;
+            HttpURLConnection urlConnection = null;
+
+            try {
+
+                url = new URL(urls[0]);
+
+                urlConnection = (HttpURLConnection)url.openConnection();
+
+                InputStream in = urlConnection.getInputStream();
+
+                InputStreamReader reader = new InputStreamReader(in);
+
+                int data = reader.read();
+
+                while (data != -1) {
+
+                    char current = (char) data;
+
+                    result += current;
+
+                    data = reader.read();
+                }
+
+                return result;
+
+            }
+            catch (Exception e) {
+
+                e.printStackTrace();
+
+            }
+
+            return null;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         imageView = (ImageView) findViewById(R.id.imageView);
+        button0 = (Button) findViewById(R.id.button);
+        button1 = (Button) findViewById(R.id.button2);
+        button2 = (Button) findViewById(R.id.button3);
+        button3 = (Button) findViewById(R.id.button4);
 
-        button0 = (Button) findViewById(R.id.b1);
-        button1 = (Button) findViewById(R.id.b2);
-        button2 = (Button) findViewById(R.id.b3);
-        button3 = (Button) findViewById(R.id.b4);
+        DownloadTask task = new DownloadTask();
+        String result = null;
 
-        String da;
-        Down d = new Down();
         try {
 
-            da = d.execute("http://www.posh24.com/celebrities").get();
-            Log.i("Content", da);
+            result = task.execute("http://www.posh24.com/celebrities").get();
 
-            String[] Celeb = da.split("<div class=\"channelListEntry\">");
+            String[] splitResult = result.split("<div class=\"sidebarContainer\">");
 
             Pattern p = Pattern.compile("<img src=\"(.*?)\"");
-            Matcher m = p.matcher(Celeb[0]);
+            Matcher m = p.matcher(splitResult[0]);
 
             while (m.find()) {
 
@@ -195,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             p = Pattern.compile("alt=\"(.*?)\"");
-            m = p.matcher(Celeb[0]);
+            m = p.matcher(splitResult[0]);
 
             while (m.find()) {
 
@@ -203,14 +174,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        } catch (InterruptedException e) {
+
+            e.printStackTrace();
+
+        } catch (ExecutionException e) {
+
+            e.printStackTrace();
+
+        }
 
         createNewQuestion();
 
