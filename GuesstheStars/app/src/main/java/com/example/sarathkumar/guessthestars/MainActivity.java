@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
+                //connection.connect();
                 connection.connect();
 
                 InputStream inputStream = connection.getInputStream();
