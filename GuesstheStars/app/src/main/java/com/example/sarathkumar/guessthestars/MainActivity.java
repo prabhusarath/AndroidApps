@@ -139,12 +139,12 @@ public class MainActivity extends AppCompatActivity {
 
                 URL url = new URL(urls[0]);
 
-                //HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
 
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
 
-                //connection.connect();
+
 
                 connection.connect();
 
