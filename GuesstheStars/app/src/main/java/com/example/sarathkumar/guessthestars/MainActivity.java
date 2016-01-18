@@ -46,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
     Button button2;
     Button button3;
 
+
+    /*Button button0;
+    Button button1;
+    Button button2;
+    Button button3;*/
+
     public void celebChosen(View view) {
 
         if (view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))) {
