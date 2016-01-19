@@ -38,14 +38,13 @@ public class MainActivity extends AppCompatActivity {
     int locationOfCorrectAnswer = 0;
     String[] answers = new String[4];
 
-
     ImageView imageView;
 
     Button button0;
     Button button1;
     Button button2;
     Button button3;
-    
+
     public void celebChosen(View view) {
 
         if (view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))) {
@@ -72,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
 // url is of type URL. URL is a datatype in java which holds urls
             URL url;
-
-
 
 //this is kinda like a browser
             HttpURLConnection urlConnection = null;
@@ -109,9 +106,7 @@ public class MainActivity extends AppCompatActivity {
 //append the lines to the stringBuilder
                         stringBuilder.append(receiveString);
                     }
-
-
-
+                    
 //close the stream
                     inputStream.close();
 
