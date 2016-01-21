@@ -74,9 +74,6 @@ public class MainActivity extends AppCompatActivity {
 
 //this is kinda like a browser
             HttpURLConnection urlConnection = null;
-
-
-
             try {
 
 
