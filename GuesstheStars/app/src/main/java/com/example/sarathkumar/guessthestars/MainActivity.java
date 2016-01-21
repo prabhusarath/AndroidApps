@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        createNewQuestion();
 
+        createNewQuestion();
     }
 
     public class Down extends AsyncTask<String,Void,String>
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 //append the lines to the stringBuilder
                         stringBuilder.append(receiveString);
                     }
-                    
+
 //close the stream
                     inputStream.close();
 
