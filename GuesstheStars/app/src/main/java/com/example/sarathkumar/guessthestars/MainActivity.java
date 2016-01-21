@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-
                 if ( inputStream != null ) {
 
 //pass the stream to the reader
@@ -95,15 +94,12 @@ public class MainActivity extends AppCompatActivity {
                     String receiveString = "";
                     StringBuilder stringBuilder = new StringBuilder();
 
-
-
 //read lines from bufferedReader & store it in receiveString
                     while ( (receiveString = bufferedReader.readLine()) != null ) {
 
 //append the lines to the stringBuilder
                         stringBuilder.append(receiveString);
                     }
-
 //close the stream
                     inputStream.close();
 
@@ -120,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
             return "failed";
         }
     }
-
     public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
 
 
@@ -131,13 +126,8 @@ public class MainActivity extends AppCompatActivity {
 
                 URL url = new URL(urls[0]);
 
-
-
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-
-
-
+                
                 connection.connect();
 
 
