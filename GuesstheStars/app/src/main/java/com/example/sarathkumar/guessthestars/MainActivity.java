@@ -117,8 +117,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
-
-
+        
         @Override
         protected Bitmap doInBackground(String... urls) {
 
@@ -127,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 URL url = new URL(urls[0]);
 
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                
+
                 connection.connect();
 
 
