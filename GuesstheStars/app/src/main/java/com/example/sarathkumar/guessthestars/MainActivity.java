@@ -75,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
 //this is kinda like a browser
             HttpURLConnection urlConnection = null;
             try {
-
-
                 url = new URL(urls[0]);
                 urlConnection = (HttpURLConnection) url.openConnection();
                 InputStream inputStream = null;
