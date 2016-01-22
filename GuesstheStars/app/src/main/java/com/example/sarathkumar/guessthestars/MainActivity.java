@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
                 if ( inputStream != null ) {
 
-//pass the stream to the reader
                     InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
                     BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                     String receiveString = "";
@@ -100,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
 //append the lines to the stringBuilder
                         stringBuilder.append(receiveString);
                     }
-//close the stream
                     inputStream.close();
 
 //convert the entire text from stringBuiler to string & store it in result
@@ -117,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
-        
+
         @Override
         protected Bitmap doInBackground(String... urls) {
 
