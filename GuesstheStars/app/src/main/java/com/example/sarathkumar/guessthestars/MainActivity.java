@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
                 if ( inputStream != null ) {
 
                     InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
