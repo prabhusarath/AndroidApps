@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 if ( inputStream != null ) {
-
                     InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
                     BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                     String receiveString = "";
