@@ -122,8 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
                 connection.connect();
-
-
+                
                 InputStream inputStream = connection.getInputStream();
 
                 Bitmap myBitmap = BitmapFactory.decodeStream(inputStream);
