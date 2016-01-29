@@ -120,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
                 URL url = new URL(urls[0]);
 
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
                 connection.connect();
                 InputStream inputStream = connection.getInputStream();
 
@@ -136,7 +135,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (IOException e) {
 
                 e.printStackTrace();
-
             }
 
             return null;
