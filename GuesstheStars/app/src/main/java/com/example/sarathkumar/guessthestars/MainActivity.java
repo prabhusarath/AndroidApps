@@ -140,14 +140,12 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         imageView = (ImageView) findViewById(R.id.imageView);
-
         button0 = (Button) findViewById(R.id.b1);
         button1 = (Button) findViewById(R.id.b2);
         button2 = (Button) findViewById(R.id.b3);
@@ -156,7 +154,6 @@ public class MainActivity extends AppCompatActivity {
         String da;
         Down d = new Down();
         try {
-
             da = d.execute("http://www.posh24.com/celebrities").get();
             Log.i("Content", da);
 
