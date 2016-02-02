@@ -224,13 +224,10 @@ public class MainActivity extends AppCompatActivity {
                         incorrectAnswerLocation = random.nextInt(celebURLs.size());
 
                     }
-
                     answers[i] = celebNames.get(incorrectAnswerLocation);
 
 
                 }
-
-
             }
 
             button0.setText(answers[0]);
@@ -242,9 +239,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
+        
 
     }
 
