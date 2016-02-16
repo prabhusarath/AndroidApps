@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                     answers[i] = celebNames.get(incorrectAnswerLocation);
-                    
+
                 }
             }
 
@@ -238,8 +238,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
