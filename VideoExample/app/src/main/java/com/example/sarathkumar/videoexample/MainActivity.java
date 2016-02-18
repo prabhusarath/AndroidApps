@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         VideoView v1 = (VideoView) findViewById(R.id.videoView);
 
         v1.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.demovideo);
@@ -41,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; demoVideo adds items to the action bar if it is present.
