@@ -27,7 +27,11 @@
         android:text="New Button"
         android:id="@+id/b1"
         android:layout_gravity="center_horizontal"
-        android:onClick="celebChosen" />
+        android:onClick="celebChosen"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="127dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -35,7 +39,11 @@
         android:text="New Button"
         android:id="@+id/b2"
         android:layout_gravity="center_horizontal"
-        android:onClick="celebChosen" />
+        android:onClick="celebChosen"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="204dp" />
 
     <Button
         android:layout_width="match_parent"
