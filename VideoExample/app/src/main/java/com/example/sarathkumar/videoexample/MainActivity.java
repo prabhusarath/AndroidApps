@@ -10,9 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.VideoView;
 import android.widget.MediaController;
-
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,15 +18,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         VideoView v1 = (VideoView) findViewById(R.id.videoView);
-
         v1.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.demovideo);
-
         MediaController mediaControl = new MediaController(this);
 
         mediaControl.setAnchorView(v1);
 
         v1.setMediaController(mediaControl);
-
+        Toolbar toolbar1 = (Toolbar) findViewById(R.id.toolbar);
         v1.start();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -46,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -58,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
