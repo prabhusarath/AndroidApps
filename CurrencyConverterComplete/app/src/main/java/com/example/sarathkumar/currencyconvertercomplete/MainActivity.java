@@ -21,15 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void convButton(View view)
     {
-
         EditText T1 = (EditText) findViewById(R.id.editText);
-
 
         String usDollars = T1.getText().toString();
 
         if (usDollars.length() > 0 )
         {
-
         Integer indianRupees = Integer.parseInt(usDollars);
 
         String Msg =" ";
@@ -81,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
