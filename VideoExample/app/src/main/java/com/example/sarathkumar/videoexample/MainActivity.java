@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         mediaControl.setAnchorView(v1);
 
+        //mediaControl.setAnchorView(v1);
         v1.setMediaController(mediaControl);
         Toolbar toolbar1 = (Toolbar) findViewById(R.id.toolbar);
         v1.start();
