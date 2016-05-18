@@ -19,9 +19,7 @@ public class MainActivity extends AppCompatActivity {
         VideoView v1 = (VideoView) findViewById(R.id.videoView);
         v1.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.demovideo);
         MediaController mediaControl = new MediaController(this);
-
         mediaControl.setAnchorView(v1);
-
         //mediaControl.setAnchorView(v1);
         v1.setMediaController(mediaControl);
         Toolbar toolbar1 = (Toolbar) findViewById(R.id.toolbar);
