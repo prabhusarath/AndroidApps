@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
         v1.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.demovideo);
         MediaController mediaControl = new MediaController(this);
         mediaControl.setAnchorView(v1);
-        //mediaControl.setAnchorView(v1);
+        
         v1.setMediaController(mediaControl);
         Toolbar toolbar1 = (Toolbar) findViewById(R.id.toolbar);
         v1.start();
-        //v1.setMediaController(mediaControl);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
