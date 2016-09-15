@@ -2,6 +2,7 @@ package com.example.sarathkumar.guesstheceleb;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,32 +11,52 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
-    public class DownloadPics extends AsyncTask<String,void,String>{
+    public class DownloadPics extends AsyncTask<String,Void,String>{
 
 
         @Override
         protected String doInBackground(String... urls) {
 
-            String re = "";
+            String result = "";
             URL url;
             HttpURLConnection urlConnection = null;
 
             try {
 
                 url = new URL(urls[0]);
+                urlConnection = (HttpURLConnection)url.openConnection();
 
-            } catch (MalformedURLException e) {
+                InputStream inp = urlConnection.getInputStream();
 
+                InputStreamReader re = new InputStreamReader(inp);
 
-                
+                int data = re.read();
+
+                while (data != -1)
+                {
+                    char curpoint = (char) data;
+                    result += result;
+                    data = re.read();
+
+                }
+
+                return result;
+
             }
 
+            catch (Exception e) {
+
+            e.printStackTrace();
+
+            }
 
             return null;
         }
@@ -45,17 +66,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
     }
 
     @Override
