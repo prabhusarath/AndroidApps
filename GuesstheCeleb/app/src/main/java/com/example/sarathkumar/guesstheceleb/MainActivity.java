@@ -7,15 +7,18 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
             String result = "";
             URL url;
             HttpURLConnection urlConnection = null;
+            InputStream inputStream;
+            InputStreamReader inputStreamReader;
+            BufferedReader bufferedReader;
 
             try {
 
@@ -38,15 +44,29 @@ public class MainActivity extends AppCompatActivity {
 
                 InputStreamReader re = new InputStreamReader(inp);
 
-                int data = re.read();
+                BufferedReader bf = new BufferedReader(re);
 
-                while (data != -1)
+                StringBuilder stringBuilder = new StringBuilder();
+
+                String line;
+
+                //int data = re.read();
+
+                while ((line = bf.readLine()) != null)
                 {
-                    char curpoint = (char) data;
-                    result += result;
-                    data = re.read();
+                    stringBuilder.append(line);
+                    //System.out.println(line);
+                    System.out.println(line);
+
+//if i println each line in the logs it shows the complete content
+
+                    Log.i("tag",line);
 
                 }
+
+                inp.close();
+
+                result = stringBuilder.toString();
 
                 return result;
 
@@ -67,7 +87,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DownloadPics pics = new DownloadPics();
+        String result = "null";
 
+        try {
+            result = pics.execute("http://www.posh24.com/celebrities").get();
+
+            Log.i("Contents Retrived :",result);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
