@@ -1,5 +1,6 @@
 package com.example.sarathkumar.guesstheceleb;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,7 +10,36 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class MainActivity extends AppCompatActivity {
+
+    public class DownloadPics extends AsyncTask<String,void,String>{
+
+
+        @Override
+        protected String doInBackground(String... urls) {
+
+            String re = "";
+            URL url;
+            HttpURLConnection urlConnection = null;
+
+            try {
+
+                url = new URL(urls[0]);
+
+            } catch (MalformedURLException e) {
+
+
+                
+            }
+
+
+            return null;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
