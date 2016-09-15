@@ -19,6 +19,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,12 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 while ((line = bf.readLine()) != null)
                 {
                     stringBuilder.append(line);
-                    //System.out.println(line);
-                    System.out.println(line);
-
-//if i println each line in the logs it shows the complete content
-
-                    Log.i("tag",line);
+                   // Log.i("tag",line);
 
                 }
 
@@ -93,7 +90,25 @@ public class MainActivity extends AppCompatActivity {
         try {
             result = pics.execute("http://www.posh24.com/celebrities").get();
 
-            Log.i("Contents Retrived :",result);
+            String[] StrPage = result.split("<div class=\"sidebarContainer\">");
+
+            Pattern p = Pattern.compile("img src=\"(.*?)\"");
+            Matcher m = p.matcher(StrPage[0]);
+
+            while(m.find())
+            {
+                System.out.println(m.group(1));
+
+            }
+
+            Pattern p1 = Pattern.compile("alt=\"(.*?)\"");
+            Matcher m1 = p1.matcher(StrPage[0]);
+
+            while(m1.find())
+            {
+                System.out.println(m1.group(1));
+
+            }
 
         } catch (InterruptedException e) {
             e.printStackTrace();
