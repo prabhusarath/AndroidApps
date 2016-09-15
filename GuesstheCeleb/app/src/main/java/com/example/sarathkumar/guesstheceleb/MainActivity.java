@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     Button b3;
 
     ImageView Imgview;
+    Bitmap img;
 
     public void celebchosen(View view)
     {
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                DownloadPics pics = new DownloadPics();
+        DownloadPics pics = new DownloadPics();
         String result = "null";
 
         try {
@@ -197,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImgDownload imtask = new ImgDownload();
 
-        Bitmap img;
+
 
         try {
             img = imtask.execute(Celeb.get(chose)).get();
