@@ -1,5 +1,6 @@
 package com.example.sarathkumar.bluetoothfeature;
 
+import android.bluetooth.BluetoothAdapter;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+
+    BluetoothAdapter B;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
