@@ -1,6 +1,7 @@
 package com.example.sarathkumar.bluetoothfeature;
 
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -18,10 +20,9 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
-    BluetoothAdapter BTooth;
+    BluetoothAdapter BTooth = BluetoothAdapter.getDefaultAdapter();
 
     public void turnoff(View view) {
-
 
         BTooth.disable();
 
@@ -44,14 +45,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void viewdevices(View view)
     {
-        Set devices = BTooth.getBondedDevices();
+        Set<BluetoothDevice> devices = BTooth.getBondedDevices();
 
         ListView pairedlistView = (ListView) findViewById(R.id.pairedlistView);
 
         ArrayList paired = new ArrayList();
 
-        
+        for (BluetoothDevice tooth : devices)
+        {
+            paired.add(tooth.getName());
 
+        }
+
+        ArrayAdapter adapt = new ArrayAdapter(this, android.R.layout.simple_list_item_1, paired);
+
+        pairedlistView.setAdapter(adapt);
 
     }
 
@@ -64,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         {
             Toast.makeText(getApplicationContext(),"Bluetooth is Already On",Toast.LENGTH_LONG).show();
         }
-
         else
         {
 
