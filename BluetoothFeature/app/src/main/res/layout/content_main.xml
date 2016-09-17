@@ -9,7 +9,37 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
 
-    <TextView android:text="Hello World!" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Turn Bluetooth Off"
+        android:id="@+id/buttonoff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:onClick="turnoff" />
 
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Find Devices"
+        android:id="@+id/FindDevices"
+        android:layout_below="@+id/buttonoff"
+        android:layout_alignParentStart="true"
+        android:onClick="findDevices" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="View Paired Devices"
+        android:id="@+id/viewdevices"
+        android:layout_below="@+id/FindDevices"
+        android:layout_centerHorizontal="true"
+        android:onClick="viewdevices" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:id="@+id/pairedlistView"
+        android:layout_below="@+id/viewdevices"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

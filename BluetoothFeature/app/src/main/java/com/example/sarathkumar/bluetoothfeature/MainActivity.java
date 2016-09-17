@@ -10,12 +10,50 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
     BluetoothAdapter BTooth;
 
+    public void turnoff(View view) {
+
+
+        BTooth.disable();
+
+        if (BTooth.isEnabled()) {
+            Toast.makeText(getApplicationContext(), "Bluetooth Could not be Disabled", Toast.LENGTH_LONG).show();
+        } else {
+
+            Toast.makeText(getApplicationContext(), "Bluetooth turned OFF", Toast.LENGTH_LONG).show();
+
+        }
+
+    }
+
+    public void findDevices(View view)
+    {
+        Intent i = new Intent(BTooth.ACTION_REQUEST_DISCOVERABLE);
+                startActivity(i);
+
+    }
+
+    public void viewdevices(View view)
+    {
+        Set devices = BTooth.getBondedDevices();
+
+        ListView pairedlistView = (ListView) findViewById(R.id.pairedlistView);
+
+        ArrayList paired = new ArrayList();
+
+        
+
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
