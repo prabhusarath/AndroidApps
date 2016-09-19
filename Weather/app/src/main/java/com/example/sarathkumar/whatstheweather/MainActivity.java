@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,9 +23,11 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,11 +38,23 @@ public class MainActivity extends AppCompatActivity {
     {
 
         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        mgr.hideSoftInputFromWindow(name.getWindowToken(),0);
+        mgr.hideSoftInputFromWindow(name.getWindowToken(), 0);
+
+        String founded = null;
+        try {
+
+            founded = URLEncoder.encode(name.getText().toString(), "UTF-8");
+
+            DownloadTask d = new DownloadTask();
+            d.execute("http://api.openweathermap.org/data/2.5/weather?q="+founded+"&APPID=d68285aa71870a9455d34c7133437c42");
 
 
-        DownloadTask d = new DownloadTask();
-        d.execute("http://api.openweathermap.org/data/2.5/weather?q="+name.getText().toString()+"&APPID=d68285aa71870a9455d34c7133437c42");
+        } catch (UnsupportedEncodingException e) {
+            Toast.makeText(getApplicationContext(),"Could not find the City Mentioned",Toast.LENGTH_LONG).show();
+        }
+
+
+
     }
 
     @Override
@@ -81,15 +96,11 @@ public class MainActivity extends AppCompatActivity {
                     data = reader.read();
 
                 }
-
                 return result;
 
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+            }  catch (Exception e) {
+                Toast.makeText(getApplicationContext(),"Could not find the City Mentioned",Toast.LENGTH_LONG).show();
             }
-
             return null;
         }
 
@@ -120,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
                     b = jsonPart.getString("main");
                     m = jsonPart.getString("description");
 
-                    //Log.i("Sarath", jsonPart.getString("main"));
-                   // Log.i("description", jsonPart.getString("description"));
+                    Log.i("Sarath", jsonPart.getString("main"));
+                    Log.i("description", jsonPart.getString("description"));
 
                     if (m != "" && b != "")
                     {
