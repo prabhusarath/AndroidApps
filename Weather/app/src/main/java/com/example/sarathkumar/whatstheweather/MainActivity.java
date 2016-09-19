@@ -1,5 +1,6 @@
 package com.example.sarathkumar.whatstheweather;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,7 +11,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,16 +29,18 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     EditText name;
+    TextView t2;
 
     public void checkweather(View view)
     {
-    //Log.i("City",name.getText().toString());
 
-       DownloadTask d = new DownloadTask();
+        InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        mgr.hideSoftInputFromWindow(name.getWindowToken(),0);
+
+
+        DownloadTask d = new DownloadTask();
         d.execute("http://api.openweathermap.org/data/2.5/weather?q="+name.getText().toString()+"&APPID=d68285aa71870a9455d34c7133437c42");
     }
-
-   
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         name = (EditText)findViewById(R.id.e1);
+        t2 = (TextView)findViewById(R.id.t2);
 
     }
 
@@ -91,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
+            String msg = "";
+
             try {
 
                 JSONObject jsonObject = new JSONObject(result);
@@ -105,9 +113,26 @@ public class MainActivity extends AppCompatActivity {
 
                     JSONObject jsonPart = arr.getJSONObject(i);
 
-                    Log.i("main", jsonPart.getString("main"));
-                    Log.i("description", jsonPart.getString("description"));
+                    String b ="";
+                    String m = "";
 
+
+                    b = jsonPart.getString("main");
+                    m = jsonPart.getString("description");
+
+                    //Log.i("Sarath", jsonPart.getString("main"));
+                   // Log.i("description", jsonPart.getString("description"));
+
+                    if (m != "" && b != "")
+                    {
+                        msg += m + ":" + b + "\n";
+
+                    }
+                }
+                if (msg != "")
+                {
+
+                    t2.setText(msg);
                 }
 
             } catch (JSONException e) {
