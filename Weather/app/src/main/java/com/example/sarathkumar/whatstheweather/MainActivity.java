@@ -47,10 +47,8 @@ public class MainActivity extends AppCompatActivity {
             d.execute("http://api.openweathermap.org/data/2.5/weather?q="+founded+"&APPID=d68285aa71870a9455d34c7133437c42");
 
         } catch (UnsupportedEncodingException e) {
-            Toast.makeText(getApplicationContext(),"Could not find the City Mentioned",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Could not find the  Mentioned City",Toast.LENGTH_LONG).show();
         }
-
-
 
     }
 
@@ -96,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 return result;
 
             }  catch (Exception e) {
-                Toast.makeText(getApplicationContext(),"Could not find the City Mentioned",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Could not find the  Mentioned City",Toast.LENGTH_LONG).show();
             }
             return null;
         }
@@ -128,8 +126,8 @@ public class MainActivity extends AppCompatActivity {
                     b = jsonPart.getString("main");
                     m = jsonPart.getString("description");
 
-                    Log.i("Sarath", jsonPart.getString("main"));
-                    Log.i("description", jsonPart.getString("description"));
+                  //  Log.i("Sarath", jsonPart.getString("main"));
+                  //   Log.i("description", jsonPart.getString("description"));
 
                     if (m != "" && b != "")
                     {
