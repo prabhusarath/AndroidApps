@@ -36,18 +36,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkweather(View view)
     {
-
         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         mgr.hideSoftInputFromWindow(name.getWindowToken(), 0);
 
         String founded = null;
         try {
-
             founded = URLEncoder.encode(name.getText().toString(), "UTF-8");
 
             DownloadTask d = new DownloadTask();
             d.execute("http://api.openweathermap.org/data/2.5/weather?q="+founded+"&APPID=d68285aa71870a9455d34c7133437c42");
-
 
         } catch (UnsupportedEncodingException e) {
             Toast.makeText(getApplicationContext(),"Could not find the City Mentioned",Toast.LENGTH_LONG).show();
@@ -149,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
 
         }
     }
