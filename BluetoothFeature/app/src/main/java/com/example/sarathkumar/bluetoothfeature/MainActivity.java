@@ -21,7 +21,6 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 
     BluetoothAdapter BTooth = BluetoothAdapter.getDefaultAdapter();
-
     public void turnoff(View view) {
 
         BTooth.disable();
@@ -31,11 +30,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
 
             Toast.makeText(getApplicationContext(), "Bluetooth turned OFF", Toast.LENGTH_LONG).show();
-
         }
-
     }
-
     public void findDevices(View view)
     {
         Intent i = new Intent(BTooth.ACTION_REQUEST_DISCOVERABLE);
@@ -53,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         for (BluetoothDevice tooth : devices)
         {
-            paired.add(tooth.getName());
+            paired.add(tooth.geBCWP (i.e. tName());
 
         }
 
