@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     public void turnoff(View view) {
 
         BTooth.disable();
-
         if (BTooth.isEnabled()) {
             Toast.makeText(getApplicationContext(), "Bluetooth Could not be Disabled", Toast.LENGTH_LONG).show();
         } else {
@@ -54,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ArrayAdapter adapt = new ArrayAdapter(this, android.R.layout.simple_list_item_1, paired);
-
         pairedlistView.setAdapter(adapt);
 
     }
