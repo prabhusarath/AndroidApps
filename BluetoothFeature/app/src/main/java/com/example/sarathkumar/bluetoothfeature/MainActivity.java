@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter adapt = new ArrayAdapter(this, android.R.layout.simple_list_item_1, paired);
         pairedlistView.setAdapter(adapt);
-
     }
 
     @Override
