@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button box1,box2,box3,box4,box5,box6,box7,box8,box9;
+    Button box1, box2, box3, box4, box5, box6, box7, box8, box9;
 
     Boolean turns;
 
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         box1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(box1.getText().toString().equals("")) {
+                if (box1.getText().toString().equals("")) {
                     if (turns) {
                         turns = !turns;
                         box1.setText("X");
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         box2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(box2.getText().toString().equals("")) {
+                if (box2.getText().toString().equals("")) {
                     if (turns) {
                         turns = !turns;
                         box2.setText("X");
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         box3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(box3.getText().toString().equals("")) {
+                if (box3.getText().toString().equals("")) {
                     if (turns) {
                         turns = !turns;
                         box3.setText("X");
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         box4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(box4.getText().toString().equals("")) {
+                if (box4.getText().toString().equals("")) {
                     if (turns) {
                         turns = !turns;
                         box4.setText("X");
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         box5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(box5.getText().toString().equals("")) {
+                if (box5.getText().toString().equals("")) {
                     if (turns) {
                         turns = !turns;
                         box5.setText("X");
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         box6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(box6.getText().toString().equals("")) {
+                if (box6.getText().toString().equals("")) {
                     if (turns) {
                         turns = !turns;
                         box6.setText("X");
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         box7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(box7.getText().toString().equals("")) {
+                if (box7.getText().toString().equals("")) {
                     if (turns) {
                         turns = !turns;
                         box7.setText("X");
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         box8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(box8.getText().toString().equals("")) {
+                if (box8.getText().toString().equals("")) {
                     if (turns) {
                         turns = !turns;
                         box8.setText("X");
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         box9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(box9.getText().toString().equals("")) {
+                if (box9.getText().toString().equals("")) {
                     if (turns) {
                         turns = !turns;
                         box9.setText("X");
@@ -185,8 +185,6 @@ public class MainActivity extends AppCompatActivity {
                 results();
             }
         });
-
-
 
 
     }
@@ -214,14 +212,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public <T> boolean Rules(T a, T b,T c, T expected) {
+    public <T> boolean Rules(T a, T b, T c, T expected) {
         return a.equals(expected) && b.equals(expected) && c.equals(expected);
     }
 
 
-    public void results(){
+    public void results() {
 
-        String bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9;
+        String bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9;
 
         boolean result = false;
         boolean draw = true;
@@ -236,87 +234,103 @@ public class MainActivity extends AppCompatActivity {
         bt8 = box8.getText().toString();
         bt9 = box9.getText().toString();
 
-        if ( Rules(bt1,bt2,bt3,"X")){
-            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
-            result=true;
+        if (Rules(bt1, bt2, bt3, "X")) {
+            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
-        } else if(Rules(bt1,bt2,bt3,"O")){
-            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
-            result=true;
+
+        } else if (Rules(bt1, bt2, bt3, "O")) {
+            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
+
         }
 
-        if ( Rules(bt4,bt5,bt6,"X")){
-            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
-            result=true;
+        if (Rules(bt4, bt5, bt6, "X")) {
+            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
-        }else if(Rules(bt4,bt5,bt6,"O")){
-            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
-            result=true;
+
+        } else if (Rules(bt4, bt5, bt6, "O")) {
+            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
+
         }
 
-        if ( Rules(bt7,bt8,bt9,"X")){
-            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
-            result=true;
+        if (Rules(bt7, bt8, bt9, "X")) {
+            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
-        }else if(Rules(bt7,bt8,bt9,"O")){
-            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
-            result=true;
+
+        } else if (Rules(bt7, bt8, bt9, "O")) {
+            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
+
         }
 
-        if ( Rules(bt1,bt4,bt7,"X")){
-            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
-            result=true;
+        if (Rules(bt1, bt4, bt7, "X")) {
+            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
-        }else if(Rules(bt1,bt4,bt7,"O")){
-            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
-            result=true;
+
+        } else if (Rules(bt1, bt4, bt7, "O")) {
+            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
+
         }
 
-        if ( Rules(bt2,bt5,bt8,"X")){
-            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
-            result=true;
+        if (Rules(bt2, bt5, bt8, "X")) {
+            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
-        }else if(Rules(bt2,bt5,bt8,"O")){
-            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
-            result=true;
+
+        } else if (Rules(bt2, bt5, bt8, "O")) {
+            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
+
         }
 
-        if ( Rules(bt6,bt9,bt3,"X")){
-            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
-            result=true;
+        if (Rules(bt6, bt9, bt3, "X")) {
+            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
-        }else if(Rules(bt6,bt9,bt3,"O")){
-            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
-            result=true;
+
+        } else if (Rules(bt6, bt9, bt3, "O")) {
+            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
+
         }
 
-        if ( Rules(bt1,bt5,bt9,"X")){
-            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
-            result=true;
+        if (Rules(bt1, bt5, bt9, "X")) {
+            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
-        }else if(Rules(bt1,bt5,bt9,"O")){
-            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
-            result=true;
+
+        } else if (Rules(bt1, bt5, bt9, "O")) {
+            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
+
         }
 
-        if ( Rules(bt7,bt5,bt3,"X")){
-            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
-            result=true;
+        if (Rules(bt7, bt5, bt3, "X")) {
+            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
-        }else if(Rules(bt7,bt5,bt3,"O")){
-            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
-            result=true;
+
+        } else if (Rules(bt7, bt5, bt3, "O")) {
+            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+            result = true;
             draw = false;
+
         }
 
-        if(result) {
+        if (result) {
             box1.setEnabled(!result);
             box2.setEnabled(!result);
             box3.setEnabled(!result);
@@ -326,14 +340,14 @@ public class MainActivity extends AppCompatActivity {
             box7.setEnabled(!result);
             box8.setEnabled(!result);
             box9.setEnabled(!result);
+        } else {
+
+            if( draw && !bt1.isEmpty() && !bt2.isEmpty() && !bt3.isEmpty() && !bt4.isEmpty()
+                    && !bt5.isEmpty() && !bt6.isEmpty() && !bt7.isEmpty() && !bt8.isEmpty() && !bt9.isEmpty())
+            {
+                Toast.makeText(MainActivity.this, " Draw ", Toast.LENGTH_LONG).show();
+            }
         }
-
-        if( draw && !result && !(box1.isEnabled()) && !(box2.isEnabled()) && !(box3.isEnabled()) && !(box4.isEnabled())
-                && !(box5.isEnabled()) && !(box6.isEnabled()) && !(box7.isEnabled()) && !(box8.isEnabled()) && !(box9.isEnabled())){
-            Log.d("aa","aaaaa");
-            Toast.makeText(MainActivity.this, " Game Draw Finished.",Toast.LENGTH_LONG).show();
-        }
-
-
     }
 }
+
