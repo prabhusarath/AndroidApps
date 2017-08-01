@@ -8,24 +8,185 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    Button box1,box2,box3,box4,box5,box6,box7,box8,box9;
+
+    Boolean turns;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
+        box1 = (Button) findViewById(R.id.box1);
+        box2 = (Button) findViewById(R.id.box2);
+        box3 = (Button) findViewById(R.id.box3);
+        box4 = (Button) findViewById(R.id.box4);
+        box5 = (Button) findViewById(R.id.box5);
+        box6 = (Button) findViewById(R.id.box6);
+        box7 = (Button) findViewById(R.id.box7);
+        box8 = (Button) findViewById(R.id.box8);
+        box9 = (Button) findViewById(R.id.box9);
+
+        turns = true;
+
+        box1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                if(box1.getText().toString().equals("")) {
+                    if (turns) {
+                        turns = !turns;
+                        box1.setText("X");
+                    } else if (!turns) {
+                        turns = !turns;
+                        box1.setText("O");
+                    }
+                }
+                results();
             }
         });
+
+        box2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(box2.getText().toString().equals("")) {
+                    if (turns) {
+                        turns = !turns;
+                        box2.setText("X");
+                    } else if (!turns) {
+                        turns = !turns;
+                        box2.setText("O");
+                    }
+                }
+                results();
+            }
+        });
+
+        box3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(box3.getText().toString().equals("")) {
+                    if (turns) {
+                        turns = !turns;
+                        box3.setText("X");
+                    } else if (!turns) {
+                        turns = !turns;
+                        box3.setText("O");
+                    }
+                }
+                results();
+            }
+        });
+
+        box4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(box4.getText().toString().equals("")) {
+                    if (turns) {
+                        turns = !turns;
+                        box4.setText("X");
+                    } else if (!turns) {
+                        turns = !turns;
+                        box4.setText("O");
+                    }
+                }
+                results();
+            }
+        });
+        box5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(box5.getText().toString().equals("")) {
+                    if (turns) {
+                        turns = !turns;
+                        box5.setText("X");
+                    } else if (!turns) {
+                        turns = !turns;
+                        box5.setText("O");
+                    }
+                }
+                results();
+            }
+        });
+        box6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(box6.getText().toString().equals("")) {
+                    if (turns) {
+                        turns = !turns;
+                        box6.setText("X");
+                    } else if (!turns) {
+                        turns = !turns;
+                        box6.setText("O");
+                    }
+                }
+                results();
+            }
+        });
+        box7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(box7.getText().toString().equals("")) {
+                    if (turns) {
+                        turns = !turns;
+                        box7.setText("X");
+                    } else if (!turns) {
+                        turns = !turns;
+                        box7.setText("O");
+                    }
+                }
+                results();
+            }
+        });
+        box8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(box8.getText().toString().equals("")) {
+                    if (turns) {
+                        turns = !turns;
+                        box8.setText("X");
+                    } else if (!turns) {
+                        turns = !turns;
+                        box8.setText("O");
+                    }
+                }
+                results();
+            }
+        });
+        box9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(box9.getText().toString().equals("")) {
+                    if (turns) {
+                        turns = !turns;
+                        box9.setText("X");
+                    } else if (!turns) {
+                        turns = !turns;
+                        box9.setText("O");
+                    }
+                }
+                results();
+            }
+        });
+
+
+
+
     }
 
     @Override
@@ -48,5 +209,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void results(){
+
+        String bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9;
+
+        bt1 = box1.getText().toString();
+        bt2 = box2.getText().toString();
+        bt3 = box3.getText().toString();
+        bt4 = box4.getText().toString();
+        bt5 = box5.getText().toString();
+        bt6 = box6.getText().toString();
+        bt7 = box7.getText().toString();
+        bt8 = box8.getText().toString();
+        bt9 = box9.getText().toString();
+
+
+
+
+
+
     }
 }
