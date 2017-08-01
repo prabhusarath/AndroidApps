@@ -5,10 +5,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -211,9 +213,18 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    public <T> boolean Rules(T a, T b,T c, T expected) {
+        return a.equals(expected) && b.equals(expected) && c.equals(expected);
+    }
+
+
     public void results(){
 
         String bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9;
+
+        boolean result = false;
+        boolean draw = true;
 
         bt1 = box1.getText().toString();
         bt2 = box2.getText().toString();
@@ -225,9 +236,103 @@ public class MainActivity extends AppCompatActivity {
         bt8 = box8.getText().toString();
         bt9 = box9.getText().toString();
 
+        if ( Rules(bt1,bt2,bt3,"X")){
+            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        } else if(Rules(bt1,bt2,bt3,"O")){
+            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }
 
+        if ( Rules(bt4,bt5,bt6,"X")){
+            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }else if(Rules(bt4,bt5,bt6,"O")){
+            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }
 
+        if ( Rules(bt7,bt8,bt9,"X")){
+            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }else if(Rules(bt7,bt8,bt9,"O")){
+            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }
 
+        if ( Rules(bt1,bt4,bt7,"X")){
+            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }else if(Rules(bt1,bt4,bt7,"O")){
+            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }
+
+        if ( Rules(bt2,bt5,bt8,"X")){
+            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }else if(Rules(bt2,bt5,bt8,"O")){
+            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }
+
+        if ( Rules(bt6,bt9,bt3,"X")){
+            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }else if(Rules(bt6,bt9,bt3,"O")){
+            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }
+
+        if ( Rules(bt1,bt5,bt9,"X")){
+            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }else if(Rules(bt1,bt5,bt9,"O")){
+            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }
+
+        if ( Rules(bt7,bt5,bt3,"X")){
+            Toast.makeText(MainActivity.this, " Winner Player 1",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }else if(Rules(bt7,bt5,bt3,"O")){
+            Toast.makeText(MainActivity.this, " Winner Player 2",Toast.LENGTH_LONG).show();
+            result=true;
+            draw = false;
+        }
+
+        if(result) {
+            box1.setEnabled(!result);
+            box2.setEnabled(!result);
+            box3.setEnabled(!result);
+            box4.setEnabled(!result);
+            box5.setEnabled(!result);
+            box6.setEnabled(!result);
+            box7.setEnabled(!result);
+            box8.setEnabled(!result);
+            box9.setEnabled(!result);
+        }
+
+        if( draw && !result && !(box1.isEnabled()) && !(box2.isEnabled()) && !(box3.isEnabled()) && !(box4.isEnabled())
+                && !(box5.isEnabled()) && !(box6.isEnabled()) && !(box7.isEnabled()) && !(box8.isEnabled()) && !(box9.isEnabled())){
+            Log.d("aa","aaaaa");
+            Toast.makeText(MainActivity.this, " Game Draw Finished.",Toast.LENGTH_LONG).show();
+        }
 
 
     }
