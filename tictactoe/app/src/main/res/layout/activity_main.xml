@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:visibility="visible"
     android:weightSum="3"
     tools:context="com.example.sarathkumar.tictactoe.MainActivity">
 
@@ -14,82 +15,87 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="3"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:weightSum="3">
+
         <Button
             android:id="@+id/box1"
-            android:textSize="75dp"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="match_parent" />
+            android:textSize="75dp" />
 
         <Button
             android:id="@+id/box2"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textSize="75dp"/>
+            android:layout_weight="1"
+            android:textSize="75dp" />
 
         <Button
             android:id="@+id/box3"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textSize="75dp"/>
+            android:layout_weight="1"
+            android:textSize="75dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="3"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:weightSum="3">
+
         <Button
             android:id="@+id/box4"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textSize="75dp"/>
+            android:layout_weight="1"
+            android:textSize="75dp" />
 
         <Button
             android:id="@+id/box5"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textSize="75dp"/>
+            android:layout_weight="1"
+            android:textSize="75dp" />
 
         <Button
             android:id="@+id/box6"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textSize="75dp"/>
+            android:layout_weight="1"
+            android:textSize="75dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="3"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:weightSum="3">
+
         <Button
             android:id="@+id/box7"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textSize="75dp"/>
+            android:layout_weight="1"
+            android:textSize="75dp" />
 
         <Button
             android:id="@+id/box8"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textSize="75dp"/>
+            android:layout_weight="1"
+            android:textSize="75dp" />
 
         <Button
             android:id="@+id/box9"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textSize="75dp"/>
+            android:layout_weight="1"
+            android:textSize="75dp" />
+
+
     </LinearLayout>
 
 </LinearLayout>

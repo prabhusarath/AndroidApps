@@ -1,5 +1,7 @@
 package com.example.sarathkumar.tictactoe;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,11 +12,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     Button box1, box2, box3, box4, box5, box6, box7, box8, box9;
+
+    Button dialog_ok;
+    TextView dialog_info;
 
     Boolean turns;
 
@@ -23,17 +29,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        dialog_ok = (Button) findViewById(R.id.dialog_ok);
+
+        GameInput();
+    }
+
+    public void openDialog(String str) {
+        final Dialog dialog = new Dialog(MainActivity.this); // Context, this, etc.
+        dialog.setContentView(R.layout.dialog_demo);
+
+        dialog.show();
+
+        dialog_info = (TextView) dialog.findViewById(R.id.dialog_info);
+        dialog_info.setText(str);
+    }
+
+    public void Restart(View view) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void GameInput(){
 
         box1 = (Button) findViewById(R.id.box1);
         box2 = (Button) findViewById(R.id.box2);
@@ -44,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         box7 = (Button) findViewById(R.id.box7);
         box8 = (Button) findViewById(R.id.box8);
         box9 = (Button) findViewById(R.id.box9);
+
+
 
         turns = true;
 
@@ -185,8 +203,6 @@ public class MainActivity extends AppCompatActivity {
                 results();
             }
         });
-
-
     }
 
     @Override
@@ -238,11 +254,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 1");
 
         } else if (Rules(bt1, bt2, bt3, "O")) {
             Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 2");
 
         }
 
@@ -250,11 +268,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 1");
 
         } else if (Rules(bt4, bt5, bt6, "O")) {
             Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 2");
 
         }
 
@@ -262,11 +282,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 1");
 
         } else if (Rules(bt7, bt8, bt9, "O")) {
             Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 2");
 
         }
 
@@ -274,11 +296,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 1");
 
         } else if (Rules(bt1, bt4, bt7, "O")) {
             Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 2");
 
         }
 
@@ -286,11 +310,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 1");
 
         } else if (Rules(bt2, bt5, bt8, "O")) {
             Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 2");
 
         }
 
@@ -298,11 +324,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 1");
 
         } else if (Rules(bt6, bt9, bt3, "O")) {
             Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 2");
 
         }
 
@@ -310,11 +338,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 1");
 
         } else if (Rules(bt1, bt5, bt9, "O")) {
             Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 2");
 
         }
 
@@ -322,12 +352,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
+            openDialog(" Winner Player 1");
 
         } else if (Rules(bt7, bt5, bt3, "O")) {
             Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-
+            openDialog(" Winner Player 2");
         }
 
         if (result) {
@@ -345,9 +376,11 @@ public class MainActivity extends AppCompatActivity {
             if( draw && !bt1.isEmpty() && !bt2.isEmpty() && !bt3.isEmpty() && !bt4.isEmpty()
                     && !bt5.isEmpty() && !bt6.isEmpty() && !bt7.isEmpty() && !bt8.isEmpty() && !bt9.isEmpty())
             {
-                Toast.makeText(MainActivity.this, " Draw ", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, " Game Ended in Draw ", Toast.LENGTH_LONG).show();
+                openDialog(" Game Ended in Draw ");
             }
         }
+
     }
 }
 
