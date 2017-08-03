@@ -18,38 +18,36 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     Button box1, box2, box3, box4, box5, box6, box7, box8, box9;
-
     Button dialog_ok;
     TextView dialog_info;
-
     Boolean turns;
+
+    String player1 = "Winner Player 1";
+    String player2 = "Winner Player 2";
+    String draws = "Draw";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         dialog_ok = (Button) findViewById(R.id.dialog_ok);
-
-        GameInput();
+        gameInput();
     }
 
     public void openDialog(String str) {
         final Dialog dialog = new Dialog(MainActivity.this); // Context, this, etc.
         dialog.setContentView(R.layout.dialog_demo);
-
         dialog.show();
-
         dialog_info = (TextView) dialog.findViewById(R.id.dialog_info);
         dialog_info.setText(str);
     }
 
-    public void Restart(View view) {
+    public void restartApp(View view) {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
 
-    public void GameInput(){
+    public void gameInput(){
 
         box1 = (Button) findViewById(R.id.box1);
         box2 = (Button) findViewById(R.id.box2);
@@ -228,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public <T> boolean Rules(T a, T b, T c, T expected) {
+    public <T> boolean gameRules(T a, T b, T c, T expected) {
         return a.equals(expected) && b.equals(expected) && c.equals(expected);
     }
 
@@ -250,115 +248,115 @@ public class MainActivity extends AppCompatActivity {
         bt8 = box8.getText().toString();
         bt9 = box9.getText().toString();
 
-        if (Rules(bt1, bt2, bt3, "X")) {
-            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+        if (gameRules(bt1, bt2, bt3, "X")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 1");
+            openDialog(player1);
 
-        } else if (Rules(bt1, bt2, bt3, "O")) {
-            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+        } else if (gameRules(bt1, bt2, bt3, "O")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 2");
+            openDialog(player2);
 
         }
 
-        if (Rules(bt4, bt5, bt6, "X")) {
-            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+        if (gameRules(bt4, bt5, bt6, "X")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 1");
+            openDialog(player1);
 
-        } else if (Rules(bt4, bt5, bt6, "O")) {
-            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+        } else if (gameRules(bt4, bt5, bt6, "O")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 2");
+            openDialog(player2);
 
         }
 
-        if (Rules(bt7, bt8, bt9, "X")) {
-            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+        if (gameRules(bt7, bt8, bt9, "X")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 1");
+            openDialog(player1);
 
-        } else if (Rules(bt7, bt8, bt9, "O")) {
-            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+        } else if (gameRules(bt7, bt8, bt9, "O")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 2");
+            openDialog(player2);
 
         }
 
-        if (Rules(bt1, bt4, bt7, "X")) {
-            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+        if (gameRules(bt1, bt4, bt7, "X")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 1");
+            openDialog(player1);
 
-        } else if (Rules(bt1, bt4, bt7, "O")) {
-            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+        } else if (gameRules(bt1, bt4, bt7, "O")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 2");
+            openDialog(player2);
 
         }
 
-        if (Rules(bt2, bt5, bt8, "X")) {
-            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+        if (gameRules(bt2, bt5, bt8, "X")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 1");
+            openDialog(player1);
 
-        } else if (Rules(bt2, bt5, bt8, "O")) {
-            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+        } else if (gameRules(bt2, bt5, bt8, "O")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 2");
+            openDialog(player2);
 
         }
 
-        if (Rules(bt6, bt9, bt3, "X")) {
-            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+        if (gameRules(bt6, bt9, bt3, "X")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 1");
+            openDialog(player1);
 
-        } else if (Rules(bt6, bt9, bt3, "O")) {
-            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+        } else if (gameRules(bt6, bt9, bt3, "O")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 2");
+            openDialog(player2);
 
         }
 
-        if (Rules(bt1, bt5, bt9, "X")) {
-            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+        if (gameRules(bt1, bt5, bt9, "X")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 1");
+            openDialog(player1);
 
-        } else if (Rules(bt1, bt5, bt9, "O")) {
-            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+        } else if (gameRules(bt1, bt5, bt9, "O")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 2");
+            openDialog(player2);
 
         }
 
-        if (Rules(bt7, bt5, bt3, "X")) {
-            Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
+        if (gameRules(bt7, bt5, bt3, "X")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 1", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 1");
+            openDialog(player1);
 
-        } else if (Rules(bt7, bt5, bt3, "O")) {
-            Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
+        } else if (gameRules(bt7, bt5, bt3, "O")) {
+            //Toast.makeText(MainActivity.this, " Winner Player 2", Toast.LENGTH_LONG).show();
             result = true;
             draw = false;
-            openDialog(" Winner Player 2");
+            openDialog(player2);
         }
 
         if (result) {
@@ -376,8 +374,8 @@ public class MainActivity extends AppCompatActivity {
             if( draw && !bt1.isEmpty() && !bt2.isEmpty() && !bt3.isEmpty() && !bt4.isEmpty()
                     && !bt5.isEmpty() && !bt6.isEmpty() && !bt7.isEmpty() && !bt8.isEmpty() && !bt9.isEmpty())
             {
-                Toast.makeText(MainActivity.this, " Game Ended in Draw ", Toast.LENGTH_LONG).show();
-                openDialog(" Game Ended in Draw ");
+                //Toast.makeText(MainActivity.this, " Game Ended in Draw ", Toast.LENGTH_LONG).show();
+                openDialog(draws);
             }
         }
 
